@@ -1,0 +1,17 @@
+[package]
+name = "uni-pad"
+version = "0.1.0"
+authors = ["jice <jice.nospam@gmail.com>"]
+description = "Unrust native/wasm compatibility layer for gamepad support"
+license = "MIT"
+documentation = "https://docs.rs/uni-pad"
+repository = "https://github.com/unrust/uni-pad"
+keywords = ["gamepad", "input", "wasm"]
+
+[dependencies]
+
+[target.wasm32-unknown-unknown.dependencies]
+stdweb =  "0.4.8"
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+gamepad-rs = { git = "https://github.com/unrust/gamepad-rs.git" }
