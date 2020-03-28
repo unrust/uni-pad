@@ -35,6 +35,7 @@ impl GamepadContext {
             true => Some(GamepadContext {}),
         }
     }
+    pub fn update(&mut self) {}
     pub fn is_connected(&mut self, player_num: i32) -> bool {
         let connected: bool = js! {
             if (navigator.userAgent.toLowerCase().indexOf("chrome") != -1) {
@@ -65,8 +66,9 @@ impl GamepadContext {
                     }
                 }
             }
+            let coef = @{axis_num} == 1 ? -1 : 1;
             if ( @{player_num} < window.pads.length && window.pads[@{player_num}] ) {
-                return window.pads[@{player_num}].axes[@{axis_num}];
+                return coef*window.pads[@{player_num}].axes[@{axis_num}];
             } else {
                 return 0.0;
             }

@@ -25,4 +25,9 @@ impl GamepadContext {
     pub fn button(&mut self, player_num: i32, button_num: i32) -> bool {
         self.context.state(player_num as usize).digital_state[button_num as usize]
     }
+    pub fn update(&mut self) {
+        for i in 0..MAX_DEVICES {
+            self.context.update(i);
+        }
+    }
 }
