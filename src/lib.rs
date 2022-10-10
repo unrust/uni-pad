@@ -1,10 +1,5 @@
 #![recursion_limit = "512"]
 
-// wasm-unknown-unknown
-#[cfg(target_arch = "wasm32")]
-#[macro_use]
-extern crate stdweb;
-
 #[cfg(target_arch = "wasm32")]
 #[path = "web_pad.rs"]
 pub mod pad;

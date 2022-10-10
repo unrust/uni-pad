@@ -2,6 +2,16 @@ extern crate uni_pad;
 
 use uni_pad::*;
 
+// bootstrap code for wasm target
+#[cfg(target_arch = "wasm32")]
+use wasm_bindgen::prelude::*;
+#[cfg(target_arch = "wasm32")]
+#[wasm_bindgen(start)]
+pub fn main_js() -> Result<(), JsValue> {
+    main();
+    Ok(())
+}
+
 pub fn main() {
     let mut controller = GamepadContext::new().unwrap();
 

@@ -1,0 +1,13 @@
+[package]
+name = "uni-pad-demo"
+version = "0.1.0"
+authors = ["jice <jice.nospam@gmail.com>"]
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+path = "test.rs"
+
+[dependencies]
+uni-pad = { path = ".." }
+wasm-bindgen = "0.2.83"
